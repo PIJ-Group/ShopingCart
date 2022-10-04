@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="css/formulario.css">
+    <script src="formulario.js"></script>
+</head>
+<header>
+    <img id="logo" src="img/logo.PNG" alt="PIJSHOP">
+</header>
+<body>
+    <form action="procesarPedido.jsp" method="post">
+        <fieldset id="form">
+            <label for="articleName">Nombre artículo: </label>
+            <input id="articleName" type="text" name="articleName"><span></span><br/><br/>
+            <label for="articlePrice">Precio artículo: </label>
+            <input id="articlePrice" type="text" name="articlePrice"><span></span><br/><br/>
+            <label for="units">Unidades</label>
+            <input id="units" type="number" name="units" value="1"><br/><br/>
+            <input id="addCart" type="button" name="addCart" value="Añadir al carrito"><br/><br/>
+            <label for="cartArticles">Artículos en el carrito: </label>
+            <input id="cartArticles"type="text" name="cartArticles" size="150"><br/><br/>
+            <label for="cartPrice">Precio total del carrito: </label>
+            <input id="cartPrice" type="text" name="cartPrice"><br/><br/>
+            <label for="wayToPay">Forma de pago: </label>
+            <select name="wayToPay" id="wayToPay">
+                <option value="select">--seleccione--</option>
+                <option value="card">Tarjeta</option>
+                <option value="cash">Efectivo</option>
+            </select><br/><br/>
+            <input id="conditions" type="checkbox" name="conditions">
+            <label for="conditions">Acepto las condiciones de compra</label><br/><br/>
+            <input id="printButton" type="button" name="printButton" value="Imprimir">
+            <input id="restoreButton" type="button" name="restoreButton" value="Restablecer">
+
+        </fieldset>
+    </form>
+    
+</body>
+</html>
