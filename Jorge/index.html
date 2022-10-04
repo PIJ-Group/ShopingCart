@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea AE-1</title>
+    <link rel="icon" href="./img/cesta_pestaña.png">
+    <link href="./css/estilos.css" rel="stylesheet">
+    <script src="./js/codigo.js"></script>
+</head>
+<body>
+    <header>        
+        <h1>Supermercado</h1>
+        <img src="./img/cesta_pestaña.png" width="60" height="60" alt="Icono supermercado">
+    </header>
+    <main>
+        <section>
+            <header>
+                <h2>Tu cesta</h1>
+                <img src="./img/cesta_form.png" width="20" height="20" alt="icono cesta">
+            </header>
+            <article id="form">
+                <form action="procesarPeticion.jsp" method="get">
+                    <label for="nombre">Nombre artículo: </label>
+                        <input id="nombre" type="text" name="nombre" autofocus required>
+                        <span id="spanNombre"></span>
+
+                    <label for="precioArticulo">Precio artículo: </label>
+                        <input id="precioArticulo" type="text" name="precioArticulo" required>
+                        <span id="spanPrecioArticulo"></span>
+
+                    <label for="unidades">Unidades: </label>
+                        <input id="unidades" type="number" min="1" value="1" name="unidades">
+
+                    <input id="add" type="submit" value="Añadir al carrito">
+
+                    <label for="articuloCesta">Artículos en el carrito: </label>
+                        <input id="articuloCesta" type="text" name="articuloCesta">
+
+                    <label for="precioTotal">Precio total del carrito: </label>
+                        <input id="precioTotal" type="text" name="precioTotal">
+
+                    <label for="formaPago">Forma de pago: </label>
+                        <select id="formaPago" name="formaPago">
+                            <option value="S">--Seleccione--</option>
+                            <option value="T">Tarjeta</option>
+                            <option value="E">Efectivo</option>
+                        </select>
+
+                    <div class="pagoTarjeta">
+                        <label for="titularTarjeta">Titular tarjeta: </label>
+                            <input id="titularTarjeta" type="text" name="titularTarjeta">
+
+                        <label for="numeroTarjeta">Número tarjeta: </label>
+                            <input id="numeroTarjeta" type="text" name="numeroTarjeta">
+                        
+                        <label for="cvv">CVV: </label>
+                            <input id="cvv" type="text" name="cvv">
+                    </div>
+
+                    <div class="pagoEfectivo">
+                        <label for="importeEfectivo">Importe efectivo: </label>
+                            <input id="importeEfectivo" type="text" name="importeEfectivo">
+                    </div>
+
+                    <input id="terminos" type="checkbox" name="terminos" value="Y">
+                        <label for="terminos">Acepto las condiciones de la compra</label>
+                        
+                    <input id="imprimir" type="submit" vale="Imprimir">
+
+                    <input id="reset" type="reset" value="Restablecer">   
+                </form>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
