@@ -1,0 +1,15 @@
+*{padding: 0; 
+    margin: 0; 
+    box-sizing: border-box;
+    background-color: rgb(209, 204, 204);
+}
+#logo{
+    display: block;
+    margin: 0 auto;
+}
+#form{
+    background-color: white;
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+}
