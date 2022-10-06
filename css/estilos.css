@@ -1,0 +1,59 @@
+/*Titulo e imagen tarea*/
+#logo{
+    
+    width: 250px;
+}
+
+#cartIcon{
+    width: 20px;
+    height: 20px;
+}
+h1 {
+    text-align: center;
+}
+
+body>header img {
+    margin: auto;
+}
+
+/*Caja formulario*/
+section>header {
+    background-color: grey;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 0px 450px 0px 30px;
+}
+
+form {
+    background-color: #E7E7E7;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 30px 450px 20px 30px;
+}
+
+/*Titulo H2 del formulario*/
+
+
+/*Colocación de icono detrás de título*/
+h2 {
+    display: inline-block;
+}
+
+/*Separación de inputs*/
+form label {
+    display: block;
+}
+
+form input {
+    clear: right;
+    margin-bottom: 10px;
+}
+
+/*Ocultar detalle de pago con tarjeta y contado
+.pagoTarjeta {
+    display: none;
+}
+
+.pagoEfectivo {
+    display: none;
+}
