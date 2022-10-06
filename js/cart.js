@@ -34,7 +34,7 @@ function add123() {
     parseFloat(total); total = (price.value * units.value) + totalPrice.value;
     showTotalPrice();
     article.value = "";
-        price.value = 0;
+        price.value = "";
         units.value = 1;
     
     
