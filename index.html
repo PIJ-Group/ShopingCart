@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarea AE-1</title>
-    <link rel="icon" href="assets/img-carrito/cesta_pestaña.png">
+    <link rel="icon" href="img/cesta_pestaña.png"> <!--Jorge: he cambiado la ruta que estaba mal-->
     <link href="css/estilos.css" rel="stylesheet">
     <script src="js/cart.js"></script>
 </head>
@@ -27,7 +27,7 @@
                         <span id="spanName"></span>
 
                     <label for="articlePrice">Precio artículo: </label>
-                        <input id="articlePrice" type="text" name="articlePrice" required>
+                        <input id="articlePrice" type="text" name="articlePrice" required> 
                         <span id="spanArticlePrice"></span>
 
                     <label for="units">Unidades: </label>
@@ -36,10 +36,10 @@
                     <input id="add" type="button" value="Añadir al carrito">
 
                     <label for="cartArticles">Artículos en el carrito: </label>
-                        <input id="cartArticles" type="text" name="cartArticles" size="80">
+                        <input id="cartArticles" type="text" name="cartArticles" size="80" readonly> <!--Jorge: añadido el readonly-->
 
                     <label for="totalPrice">Precio total del carrito: </label>
-                        <input id="totalPrice" type="text" name="totalPrice">
+                        <input id="totalPrice" type="text" name="totalPrice" readonly> <!--Jorge: añadido el readonly-->
 
                     <label for="wayToPay">Forma de pago: </label>
                         <select id="wayToPay" name="wayToPay">
@@ -61,7 +61,7 @@
 
                     <div class="cashPay">
                         <label for="cashAmount">Importe efectivo: </label>
-                            <input id="cashAmount" type="text" name="cashAmount">
+                            <input id="cashAmount" type="text" name="cashAmount" readonly> <!--Jorge: añadido el readonly-->
                     </div>
 
                     <input id="terms" type="checkbox" name="terms" value="Y"> <!-- mirar -->
