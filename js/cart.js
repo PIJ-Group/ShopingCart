@@ -1,11 +1,11 @@
 let cart = [];
-let total = [];
 let article;
 let price;
 let units
 let add;
 let allArticles;
 let totalPrice;
+let total;
 let errorName;
 let errorArticle;
 let erase;
@@ -24,17 +24,32 @@ function addProduct() {
     if(nameT.test(article.value)){
         cart = cart.concat(article.value);
         showAllArticles();
-        article.value = "";
-        price.value = "";
-        units.value = 1;
+        
     }else{
         errorName.textContent = 'Debes poner un nombre de artículo válido';
     }
 }
 
+function add123() {
+    parseFloat(total); total = (price.value * units.value) + totalPrice.value;
+    showTotalPrice();
+    article.value = "";
+        price.value = 0;
+        units.value = 1;
+    
+    
+}
+
 function showAllArticles() {
     allArticles.value = cart.join(", ");
 }
+
+function showTotalPrice() {
+    totalPrice.value = total;
+    
+}
+
+
 
 function eraseForm() {
     location.reload();
@@ -57,8 +72,9 @@ erase = document.getElementById('reset');
 
 function initListeners() {
     add.addEventListener('click',addProduct);
-    /* add.addEventListener('click',showAllArticles);  */
+     add.addEventListener('click',add123);  
     erase.addEventListener('click',eraseForm);
+
     
 };
 
