@@ -20,7 +20,7 @@ let priceT = /^\d+$/;
 
 
 
-function addProduct() {
+function addArticle() {
     if(nameT.test(article.value)){
         cart = cart.concat(article.value);
         showAllArticles();
@@ -30,7 +30,7 @@ function addProduct() {
     }
 }
 
-function add123() {
+function addPrices() {
     parseFloat(total); total = (price.value * units.value) + totalPrice.value;
     showTotalPrice();
     article.value = "";
@@ -71,8 +71,8 @@ erase = document.getElementById('reset');
 };
 
 function initListeners() {
-    add.addEventListener('click',addProduct);
-     add.addEventListener('click',add123);  
+    add.addEventListener('click',addArticle);
+     add.addEventListener('click',addPrices);  
     erase.addEventListener('click',eraseForm);
 
     
