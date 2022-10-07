@@ -37,6 +37,21 @@ function addArticle() {
 }
 
 function addPrices() {
+    /*
+    let p = Number(price.value);
+    typeof p;
+    let u = Number(units.value);
+    typeof u;
+    let tp = Number(totalPrice.value);
+    typeof tp;
+
+    total = (p * u) + tp;
+    showTotalPrice(); 
+                                           Pablo: Resolución del problema de la suma, convirtiendo todos los strings a number. Resultado: suma en vez de concatenar.
+                                           Si dejamos este metodo se borrarian estas dos líneas:
+
+                                            total = (price.value * units.value) + totalPrice.value;
+                                            showTotalPrice();  */
     
     total = (price.value * units.value) + totalPrice.value;
     showTotalPrice();
