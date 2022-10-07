@@ -9,6 +9,8 @@ let total;
 let errorName;
 let errorArticle;
 let erase;
+let printing;
+let check;
 let priceT = /^[+-]?\d+([,.]\d+)?$/; //Jorge: he puesto la expresión regular que hace los decimales (no dejo la anterior)
                                     // Isra-Pablo: visto pero queremos que nos saque el precio total primero
 
@@ -46,21 +48,9 @@ function addPrices(price) {
     //typeof u;
     let tp = Number(totalPrice.value);
     //typeof tp;
-
+                    //Isra: dejo comentados los typeOf, que funciona sin ellos y no entiendo que hacen
     total = (p * u) + tp;
     showTotalPrice(); 
-                                          
-    total = (price.value * units.value) + totalPrice.value;
-    showTotalPrice();
-   
-    //Isra: dejo comentados los typeOf, que funciona sin ellos y no entiendo que hacen
-
-
-    /*
-    total = (price.value * units.value) + totalPrice.value; //Jorge: lo sigue concatenando porque aquí ya sigue en String haciendo cosas, entonces cuando hagas el parseint ya esta mal.
-    showTotalPrice();
-    total = parseFloat(total); //Isra - Pablo: lo pasa a Float, pero seguimos concatenando
-    */
 
     article.value = "";
     price.value = "";
@@ -93,6 +83,14 @@ function showTotalPrice() {
     
 }
 
+function ablePrint() { //Isra; para deshabilitar o habilitar boton imprimir
+    if(check.checked){
+        printing.disabled = false;
+    }else{
+        printing.disabled = true;
+    }
+}
+ 
 
 function eraseForm() {
     location.reload();
@@ -108,6 +106,8 @@ allArticles = document.getElementById('cartArticles');
 totalPrice = document.getElementById('totalPrice');
 errorName = document.getElementById('spanName');
 errorArticle = document.getElementById('spanArticlePrice');
+printing = document.getElementById('print');
+check = document.getElementById('terms');
 erase = document.getElementById('reset');
 
 };
@@ -115,11 +115,12 @@ erase = document.getElementById('reset');
 function initListeners() {
     add.addEventListener('click',addProduct);
     erase.addEventListener('click',eraseForm);
-        
+    check.addEventListener('change', ablePrint);    
 };
 
 
 window.addEventListener("load",() =>{
     initVariables();
     initListeners();
+    printing.disabled = true;
 });
