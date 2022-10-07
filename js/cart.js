@@ -37,13 +37,13 @@ function addArticle() {
 }
 
 function addPrices() {
-    /*
-    let p = Number(price.value);
-    typeof p;
+    
+   /* let p = Number(price.value);
+    //typeof p;
     let u = Number(units.value);
-    typeof u;
+    //typeof u;
     let tp = Number(totalPrice.value);
-    typeof tp;
+    //typeof tp;
 
     total = (p * u) + tp;
     showTotalPrice(); 
@@ -52,7 +52,10 @@ function addPrices() {
 
                                             total = (price.value * units.value) + totalPrice.value;
                                             showTotalPrice();  */
-    
+   
+/* Isra: añado a la solución de arriba de Pablo, qie los typeOf que pone debajo de setear cada variable como number no hacen falta
+*/
+
     total = (price.value * units.value) + totalPrice.value;
     showTotalPrice();
     total = parseFloat(total); //Isra - Pablo: lo pasa a Float, pero seguimos concatenando
