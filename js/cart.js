@@ -40,7 +40,7 @@ function addArticle() {
     }
 }
 
-function addPrices(price) {
+function addPrices() {
     
     let p = Number(price.value);
     //typeof p;
@@ -69,9 +69,6 @@ function addPrices(price) {
     }
 */  
 }
-
-
-
 
 function showAllArticles() {
     allArticles.value = cart.join(", ");
