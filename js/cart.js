@@ -9,6 +9,8 @@ let total;
 let errorName;
 let errorArticle;
 let erase;
+let printing;
+let check;
 let priceT = /^[+-]?\d+([,.]\d+)?$/; //Jorge: he puesto la expresión regular que hace los decimales (no dejo la anterior)
                                     // Isra-Pablo: visto pero queremos que nos saque el precio total primero
 
@@ -38,27 +40,16 @@ function addArticle() {
 
 function addPrices() {
     
-   /* let p = Number(price.value);
+    let p = Number(price.value);
     //typeof p;
     let u = Number(units.value);
     //typeof u;
     let tp = Number(totalPrice.value);
     //typeof tp;
-
+                    //Isra: dejo comentados los typeOf, que funciona sin ellos y no entiendo que hacen
     total = (p * u) + tp;
     showTotalPrice(); 
-                                           Pablo: Resolución del problema de la suma, convirtiendo todos los strings a number. Resultado: suma en vez de concatenar.
-                                           Si dejamos este metodo se borrarian estas dos líneas:
-
-                                            total = (price.value * units.value) + totalPrice.value;
-                                            showTotalPrice();  */
-   
-/* Isra: añado a la solución de arriba de Pablo, qie los typeOf que pone debajo de setear cada variable como number no hacen falta
-*/
-
-    total = (price.value * units.value) + totalPrice.value;
-    showTotalPrice();
-    total = parseFloat(total); //Isra - Pablo: lo pasa a Float, pero seguimos concatenando
+                                         
     
     article.value = "";
     price.value = "";
@@ -75,6 +66,14 @@ function showTotalPrice() {
     
 }
 
+function ablePrint() { //Isra para deshabilitar o habilitar boton imprimir (todavia no funciona, dando vueltas)
+    if(check.checked){
+        printing.disable = false;
+    }else{
+        printing.disable = true;
+    }
+}
+ 
 
 function eraseForm() {
     location.reload();
@@ -90,6 +89,8 @@ allArticles = document.getElementById('cartArticles');
 totalPrice = document.getElementById('totalPrice');
 errorName = document.getElementById('spanName');
 errorArticle = document.getElementById('spanArticlePrice');
+printing = document.getElementById('print');
+check = document.getElementById('terms');
 erase = document.getElementById('reset');
 
 };
@@ -97,11 +98,12 @@ erase = document.getElementById('reset');
 function initListeners() {
     add.addEventListener('click',addProduct);
     erase.addEventListener('click',eraseForm);
-        
+    check.addEventListener('change', ablePrint);    
 };
 
 
 window.addEventListener("load",() =>{
     initVariables();
     initListeners();
+    //printing.disabled = true;
 });
