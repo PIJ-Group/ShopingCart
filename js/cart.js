@@ -66,11 +66,11 @@ function showTotalPrice() {
     
 }
 
-function ablePrint() { //Isra para deshabilitar o habilitar boton imprimir (todavia no funciona, dando vueltas)
+function ablePrint() { //Isra; para deshabilitar o habilitar boton imprimir
     if(check.checked){
-        printing.disable = false;
+        printing.disabled = false;
     }else{
-        printing.disable = true;
+        printing.disabled = true;
     }
 }
  
@@ -105,5 +105,5 @@ function initListeners() {
 window.addEventListener("load",() =>{
     initVariables();
     initListeners();
-    //printing.disabled = true;
+    printing.disabled = true;
 });
