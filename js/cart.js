@@ -12,19 +12,21 @@ let erase;
 let priceT = /^[+-]?\d+([,.]\d+)?$/; //Jorge: he puesto la expresión regular que hace los decimales (no dejo la anterior)
                                     // Isra-Pablo: visto pero queremos que nos saque el precio total primero
 
-function addProduct() { //Isra-Pablo: saca error cuando dejas algun campo vacío donde le corresponde
-    if (article.value != "" && price.value != ""){
-        addArticle();
-        addPrices();
-        errorName.textContent = "";
-        errorArticle.textContent  = "";
+function addProduct() {
+    if (article.value == "" && price.value == ""){
+        errorName.textContent = "falta artículo";
+        errorArticle.textContent = "falta precio";
     }else if (article.value == "" ){
         errorName.textContent = "falta artículo";
         errorArticle.textContent  = "";
     }else if (price.value == ""){
         errorArticle.textContent = "falta precio"
         errorName.textContent = "";
-    }
+    }else{      
+        addArticle();
+        addPrices();
+    } /*Jorge: he retocado el código, cambiando el primer if para que si no pones ningún articulo y precio salga el error en los dos,
+    antes solo salía el de precio si dejabas los dos en blanco*/
 }
 
 function addArticle() {
@@ -36,9 +38,9 @@ function addArticle() {
     }
 }
 
-function addPrices() {
+function addPrices(price) {
     
-   /* let p = Number(price.value);
+    let p = Number(price.value);
     //typeof p;
     let u = Number(units.value);
     //typeof u;
@@ -47,23 +49,39 @@ function addPrices() {
 
     total = (p * u) + tp;
     showTotalPrice(); 
-                                           Pablo: Resolución del problema de la suma, convirtiendo todos los strings a number. Resultado: suma en vez de concatenar.
-                                           Si dejamos este metodo se borrarian estas dos líneas:
-
-                                            total = (price.value * units.value) + totalPrice.value;
-                                            showTotalPrice();  */
-   
-/* Isra: añado a la solución de arriba de Pablo, qie los typeOf que pone debajo de setear cada variable como number no hacen falta
-*/
-
+                                          
     total = (price.value * units.value) + totalPrice.value;
     showTotalPrice();
+   
+    //Isra: dejo comentados los typeOf, que funciona sin ellos y no entiendo que hacen
+
+
+    /*
+    total = (price.value * units.value) + totalPrice.value; //Jorge: lo sigue concatenando porque aquí ya sigue en String haciendo cosas, entonces cuando hagas el parseint ya esta mal.
+    showTotalPrice();
     total = parseFloat(total); //Isra - Pablo: lo pasa a Float, pero seguimos concatenando
-    
+    */
+
     article.value = "";
     price.value = "";
-    units.value = 1;  
+    units.value = 1;
+
+    /* Jorge: tengo que seguir probando, dejádmelo por aquí pls
+    total;
+    p = parseFloat(price);
+    console.log(p);
+    console.log(typeof(p));
+    if (p.value != ""){
+        total += (p.value*units.value);
+        showAllArticles();
+    }else{
+        errorName.textContent = "falta precio";
+    }
+*/  
 }
+
+
+
 
 function showAllArticles() {
     allArticles.value = cart.join(", ");
