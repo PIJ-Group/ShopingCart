@@ -13,6 +13,7 @@ let printing;
 let check;
 let priceT = /^[+-]?\d+([,.]\d+)?$/; //Jorge: he puesto la expresión regular que hace los decimales (no dejo la anterior)
                                     // Isra-Pablo: visto pero queremos que nos saque el precio total primero
+let onlyNumbers = /^([0-9])*$/;    // Pablo: Creo la variable para la expresión regular de "solo numeros"
 
 function addProduct() {
     if (article.value == "" && price.value == ""){
@@ -22,13 +23,21 @@ function addProduct() {
         errorName.textContent = "falta artículo";
         errorArticle.textContent  = "";
     }else if (price.value == ""){
-        errorArticle.textContent = "falta precio"
+        errorArticle.textContent = "falta precio";
         errorName.textContent = "";
+    }else if (!onlyNumbers.test(price.value)){
+        errorArticle.textContent = "tipo de dato incorrecto";
     }else{      
         addArticle();
         addPrices();
+        errorName.textContent = "";
+        errorArticle.textContent  = "";
     } /*Jorge: he retocado el código, cambiando el primer if para que si no pones ningún articulo y precio salga el error en los dos,
     antes solo salía el de precio si dejabas los dos en blanco*/
+
+    /* Pablo: 1: Añado un else if extra, para que el usuario no pueda meter letras, únicamente números y que así no nos sume NaN.
+     2: Añado también en el último else, que ambos mensaje de error se reseteen porque si te faltaba el articulo y tenias el precio o viceversa, 
+     al completarlo después, se quedaba el mensaje de error en pantalla. De esta manera desaparecen. */
 }
 
 function addArticle() {
