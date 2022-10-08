@@ -13,7 +13,7 @@ let printing;
 let check;
 let priceT = /^[+-]?\d+([,.]\d+)?$/; //Jorge: he puesto la expresión regular que hace los decimales (no dejo la anterior)
                                     // Isra-Pablo: visto pero queremos que nos saque el precio total primero
-let onlyNumbers = /^([0-9])*$/;    // Pablo: Creo la variable para la expresión regular de "solo numeros"
+
 
 function addProduct() {
     if (article.value == "" && price.value == ""){
@@ -25,7 +25,7 @@ function addProduct() {
     }else if (price.value == ""){
         errorArticle.textContent = "falta precio";
         errorName.textContent = "";
-    }else if (!onlyNumbers.test(price.value)){
+    }else if (!priceT.test(price.value)){
         errorArticle.textContent = "tipo de dato incorrecto";
     }else{      
         addArticle();
