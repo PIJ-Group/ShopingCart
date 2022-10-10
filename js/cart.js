@@ -44,6 +44,8 @@ function addArticle() {
     if (article.value != ""){
         cart.push(article.value);
         showAllArticles();
+        article.value = ""; //Jorge: añadido que se borre el campo cuando damos a "añadir"
+        document.getElementById('articleName').focus(); //Jorge: añadido que cuando damos a "añadir" después de borrar los campos vuelva el foco al nombre
     }else{
         errorName.textContent = "falta artículo";
     }
@@ -59,7 +61,8 @@ function addPrices() {
     //typeof tp;
                     //Isra: dejo comentados los typeOf, que funciona sin ellos y no entiendo que hacen
     total = (p * u) + tp;
-    showTotalPrice(); 
+    showTotalPrice();
+    price.value = ""; //Jorge: añadido que se borre el campo cuando damos a "añadir"
 
     article.value = "";
     price.value = "";
