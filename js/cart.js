@@ -63,9 +63,6 @@ function addPrices() {
     total = (p * u) + tp;
     showTotalPrice();
     price.value = ""; //Jorge: añadido que se borre el campo cuando damos a "añadir"
-
-    article.value = "";
-    price.value = "";
     units.value = 1;
 
     /* Jorge: tengo que seguir probando, dejádmelo por aquí pls
