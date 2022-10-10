@@ -6,8 +6,8 @@ let add;
 let allArticles;
 let totalPrice;
 let total;
-let errorName;
 let errorArticle;
+let errorPrice;
 let erase;
 let printing;
 let check;
@@ -17,21 +17,22 @@ let priceT = /^[+-]?\d+([,.]\d+)?$/; //Jorge: he puesto la expresión regular qu
 
 function addProduct() {
     if (article.value == "" && price.value == ""){
-        errorName.textContent = "falta artículo";
-        errorArticle.textContent = "falta precio";
+        errorArticle.textContent = "falta artículo";
+        errorPrice.textContent = "falta precio";
     }else if (article.value == "" ){
-        errorName.textContent = "falta artículo";
-        errorArticle.textContent  = "";
+        errorArticle.textContent = "falta artículo";
+        errorPrice.textContent  = "";
     }else if (price.value == ""){
-        errorArticle.textContent = "falta precio";
-        errorName.textContent = "";
+        errorPrice.textContent = "falta precio";
+        price.focus();
+        errorArticle.textContent = "";
     }else if (!priceT.test(price.value)){
-        errorArticle.textContent = "tipo de dato incorrecto";
+        errorPrice.textContent = "tipo de dato incorrecto";
     }else{      
         addArticle();
         addPrices();
-        errorName.textContent = "";
-        errorArticle.textContent  = "";
+        errorArticle.textContent = "";
+        errorPrice.textContent  = "";
     } /*Jorge: he retocado el código, cambiando el primer if para que si no pones ningún articulo y precio salga el error en los dos,
     antes solo salía el de precio si dejabas los dos en blanco*/
 
@@ -45,9 +46,9 @@ function addArticle() {
         cart.push(article.value);
         showAllArticles();
         article.value = ""; //Jorge: añadido que se borre el campo cuando damos a "añadir"
-        document.getElementById('articleName').focus(); //Jorge: añadido que cuando damos a "añadir" después de borrar los campos vuelva el foco al nombre
+        article.focus(); //Jorge: añadido que cuando damos a "añadir" después de borrar los campos vuelva el foco al nombre
     }else{
-        errorName.textContent = "falta artículo";
+        errorArticle.textContent = "falta artículo";
     }
 }
 
@@ -74,7 +75,7 @@ function addPrices() {
         total += (p.value*units.value);
         showAllArticles();
     }else{
-        errorName.textContent = "falta precio";
+        errorArticle.textContent = "falta precio";
     }
 */  
 }
@@ -83,10 +84,8 @@ function showAllArticles() {
     allArticles.value = cart.join(", ");
 }
 
-function showTotalPrice() {
-    
-    totalPrice.value = total;
-    
+function showTotalPrice() {   
+    totalPrice.value = total;   
 }
 
 function ablePrint() { //Isra; para deshabilitar o habilitar boton imprimir
@@ -110,8 +109,8 @@ units = document.getElementById('units');
 add = document.getElementById('add');
 allArticles = document.getElementById('cartArticles');
 totalPrice = document.getElementById('totalPrice');
-errorName = document.getElementById('spanName');
-errorArticle = document.getElementById('spanArticlePrice');
+errorArticle = document.getElementById('spanName');
+errorPrice = document.getElementById('spanArticlePrice');
 printing = document.getElementById('print');
 check = document.getElementById('terms');
 erase = document.getElementById('reset');
