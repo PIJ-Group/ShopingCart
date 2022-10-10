@@ -8,6 +8,10 @@ let totalPrice;
 let total;
 let errorArticle;
 let errorPrice;
+let card;
+let cardPay;
+let cash;
+let cashPay;
 let erase;
 let printing;
 let check;
@@ -88,6 +92,35 @@ function showTotalPrice() {
     totalPrice.value = total;   
 }
 
+/*
+    Jorge: básicamente lo que he creado ha sido una variable interna que recoge el índice de la opción que pinchas en ese momento.
+    En los listener la condición del escuchador es el change, entonces cuando el card hace change, con el selectedIndex recoged donde para.
+    Luego ese índice lo pasas como "argumento" del options (como cuando sacas el valor de un array mediante su índice) y le dices que te muestre el value (que nosotros tenemos con T y E en HTML).
+    Y por último, en el else lo vuelves a dejar en none porque si cambias entre ellos, se quedan las dos visibles una debajo de otra.
+    OJO PARA LA SIGUIENTE!! Lo que no me funcionaba era acceder mediante el ClassName, no se si por estar mal escrito o por que, en cuanto he metido ID lo ha hecho perfect, me estaba volviendo loco por eso.
+    Mañana le echo un vistazo porque haciendo un else if, puedes meter las dos funciones en una, ahorramos codificación, y cuando volvemos al seleccione podemos hacer que se vuelva a quedar con el mismo hueco.
+    Además si volvemos al Seleccione (no tiene sentido que se vuelva pero bueno) se queda en los 10 que le ponemos, mañana le pongo para que pase de nuevo a 70px.
+*/
+function showCardPay() {
+    let index = card.selectedIndex;
+    if(card.options[index].value == "T"){
+        cardPay.style.display = "block"; 
+        card.style.marginBottom = "10px";
+    }else{
+        cardPay.style.display = "none";
+    }
+}
+
+function showCashPay() {
+    let index = cash.selectedIndex;
+    if(cash.options[index].value == "E"){
+        cashPay.style.display = "block";
+        card.style.marginBottom = "10px";
+    }else{
+        cashPay.style.display = "none";
+    }
+}
+
 function ablePrint() { //Isra; para deshabilitar o habilitar boton imprimir
     if(check.checked){
         printing.disabled = false;
@@ -96,33 +129,35 @@ function ablePrint() { //Isra; para deshabilitar o habilitar boton imprimir
     }
 }
  
-
 function eraseForm() {
     location.reload();
 }
 
-
 function initVariables() {
-article = document.getElementById('articleName');
-price = document.getElementById('articlePrice');
-units = document.getElementById('units');
-add = document.getElementById('add');
-allArticles = document.getElementById('cartArticles');
-totalPrice = document.getElementById('totalPrice');
-errorArticle = document.getElementById('spanName');
-errorPrice = document.getElementById('spanArticlePrice');
-printing = document.getElementById('print');
-check = document.getElementById('terms');
-erase = document.getElementById('reset');
-
+    article = document.getElementById('articleName');
+    price = document.getElementById('articlePrice');
+    units = document.getElementById('units');
+    add = document.getElementById('add');
+    allArticles = document.getElementById('cartArticles');
+    totalPrice = document.getElementById('totalPrice');
+    errorArticle = document.getElementById('spanName');
+    errorPrice = document.getElementById('spanArticlePrice');
+    card = document.getElementById("selectWayToPay");//Jorge: prueba display
+    cardPay = document.getElementById("cardPay");//Jorge: prueba display
+    cash = document.getElementById("selectWayToPay");//Jorge: prueba display
+    cashPay = document.getElementById("cashPay");//Jorge: prueba display
+    check = document.getElementById('terms');
+    erase = document.getElementById('reset');
+    printing = document.getElementById('print');
 };
 
 function initListeners() {
     add.addEventListener('click',addProduct);
     erase.addEventListener('click',eraseForm);
-    check.addEventListener('change', ablePrint);    
+    check.addEventListener('change', ablePrint);
+    card.addEventListener("change", showCardPay);//Jorge: prueba display
+    cash.addEventListener("change", showCashPay);//Jorge: prueba display
 };
-
 
 window.addEventListener("load",() =>{
     initVariables();
