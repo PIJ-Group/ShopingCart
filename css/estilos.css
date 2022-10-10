@@ -1,7 +1,8 @@
 /*Titulo e imagen tarea*/
 #logo{
-    
-    width: 250px;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 10px;
 }
 
 #cartIcon{
@@ -21,6 +22,8 @@ section>header {
     background-color: grey;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    width: 300px;
+    margin: 0 auto;
     padding: 0px 450px 0px 30px;
 }
 
@@ -28,6 +31,8 @@ form {
     background-color: #E7E7E7;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    width: 300px;
+    margin: 0 auto;
     padding: 30px 450px 20px 30px;
 }
 
@@ -49,11 +54,41 @@ form input {
     margin-bottom: 10px;
 }
 
-/*Ocultar detalle de pago con tarjeta y contado
-.pagoTarjeta {
+/*Ordenar select*/
+.wayToPay {
+    display: block;
+}
+
+.selectWayToPay {
+    display:block;
+    margin-bottom: 70px;
+}
+/*Ocultar detalle de pago con tarjeta y contado*/
+.cardPay {
     display: none;
 }
 
-.pagoEfectivo {
+.cashPay {
     display: none;
+}
+
+/*Ordenar los términos*/
+.buttonTerms {
+    clear:left;
+    display:  inline-block;
+}
+
+.terms {
+    display: inline-block;
+    clear: right;
+    margin-bottom: 10px;
+}
+
+/*Orden últimos buttons*/
+.print {
+    display: inline-block;
+}
+
+.reset {
+    display: inline-block;
 }
