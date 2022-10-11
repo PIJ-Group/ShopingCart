@@ -49,6 +49,10 @@ function addProduct() {
     } 
 }
 
+/* Pablo: 1: Añado un else if extra, para que el usuario no pueda meter letras, únicamente números y que así no nos sume NaN.
+     2: Añado también en el último else, que ambos mensaje de error se reseteen porque si te faltaba el articulo y tenias el precio o viceversa, 
+     al completarlo después, se quedaba el mensaje de error en pantalla. De esta manera desaparecen. */
+
 function addArticle() {
     if (article.value != ""){
         cart.push(article.value);
@@ -117,6 +121,31 @@ function showPay() {
     }
 }
 
+/* function ableCard() { 
+    if(selection.value == 'T'){
+        card.style.display = "block";
+        cash.style.display = "none";
+    }else if(selection.value == 'E'){
+        cash.style.display = "block";
+        card.style.display = "none";
+        if(totalPrice.value == 0){
+            totalAmount.value = 0;
+        }else{
+            totalAmount.value = total
+        }
+        
+    } else{
+        card.style.display = "none";
+        cash.style.display = "none";
+    }
+   
+} Pablo: En esta función a través del 'change', estoy accediendo a los valores con un if, si Elijo 'T', se me abre tarjeta y se me cierra Efectivo,
+  Si elijo E, se me abre efectivo y se cierra tarjeta, para poder moverme entre ellas sin que se me colapsen y el else final cierra ambas cuando vuelves
+  a la pestaña seleccionar
+  
+  Dentro del else if, meto un if-else anidado aprovechando para que me saque el importe total del carrito que llevemos, lo seteo a 0, si aún el usuario no ha introducido nada
+  porque si no sale undefined y en cuanto hay articulos asignados se asigna automáticamente el monto que lleve. Para ese campo declaré una variable llamada totalAmount.*/
+
 function ablePrint() {
     if(check.checked){
         printing.disabled = false;
@@ -157,6 +186,11 @@ function initVariables() {
     check = document.getElementById('terms');
     erase = document.getElementById('reset');
     printing = document.getElementById('print');
+    // card = document.getElementById('cardP');
+    // cash = document.getElementById('cashP');
+    // selection = document.getElementById('wayToPay');
+    // totalAmount = document.getElementById('cashAmount');
+    // Pablo: inicializo mis variables, las cuales apuntan al select y a los divs de las formas de pago
 };
 
 function initListeners() {
@@ -165,10 +199,13 @@ function initListeners() {
     printing.addEventListener("click", printForm);
     check.addEventListener('change', ablePrint);
     selectPay.addEventListener("change", showPay);
+    // selection.addEventListener('change',ableCard); Pablo: Genero solo un listener, con mi variable selection que apunta a select con id 'wayToPay' y referencio a la función ableCard
 };
 
 window.addEventListener("load",() =>{
     initVariables();
     initListeners();
     printing.disabled = true;
+    // card.style.display = "none";
+    // cash.style.display = "none"; Pablo: Dejo ambos sin desplegar, utilizo variables que previamente están apuntando a los div
 });
