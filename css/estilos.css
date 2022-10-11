@@ -53,6 +53,10 @@ form input {
     clear: right;
     margin-bottom: 10px;
 }
+#spanArticlePrice{
+    position: absolute;
+    margin-left: 10px;   
+}
 
 /*Ordenar select*/
 .wayToPay {

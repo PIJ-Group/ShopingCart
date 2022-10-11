@@ -38,12 +38,15 @@ function addProduct() {
         errorArticle.textContent = "";
     }else if (!priceT.test(price.value)){
         errorPrice.textContent = "tipo de dato incorrecto";//isra: salta de linea en el formulario revisar
+        errorArticle.textContent = "";
+        article.style.border = 'thin solid black';
         price.style.border = 'thin solid red';
     }else{      
         addArticle();
-        article.style.border = 'thin solid black';
         addPrices();
+        article.style.border = 'thin solid black';
         price.style.border = 'thin solid black';
+        article.value = ""; //Jorge: añadido que se borre el campo cuando damos a "añadir"
         errorArticle.textContent = "";
         errorPrice.textContent  = "";
     } /*Jorge: he retocado el código, cambiando el primer if para que si no pones ningún articulo y precio salga el error en los dos,
@@ -58,7 +61,6 @@ function addArticle() {
     if (article.value != ""){
         cart.push(article.value);
         showAllArticles();
-        article.value = ""; //Jorge: añadido que se borre el campo cuando damos a "añadir"
         article.focus(); //Jorge: añadido que cuando damos a "añadir" después de borrar los campos vuelva el foco al nombre
         article.style.border = 'thin solid black'; // pone el borde de nuevo negro para sigiuente interacción
     }else{
