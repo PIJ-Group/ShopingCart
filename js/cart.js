@@ -158,9 +158,10 @@ function ablePrint() {
 function printForm(){
     let index = selectPay.selectedIndex;
     if(selectPay.value == "T" || selectPay.value == "E") {
-        window.alert("Los artículos de mi carrito son: " + allArticles.value +"\n"+
-                    "El precio total es: " + totalPrice.value + " €" + "\n"+
-                    "Forma de pago: " + selectPay.options[index].text);
+        window.confirm("Los artículos de mi carrito son: " + allArticles.value +"\n" +
+                    "El precio total es: " + totalPrice.value + " €" + "\n" +
+                    "Forma de pago: " + selectPay.options[index].text + "\n" +
+                    "\n" + "¿Estás seguro de comprar estos artículos?"); // isra: cambio confirm por el alert que había y añado texto
     }else{
         window.alert("Seleccione una forma de pago");
     }
