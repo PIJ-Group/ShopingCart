@@ -15,26 +15,35 @@ let cashPay;
 let erase;
 let printing;
 let check;
-let priceT = /^[+-]?\d+([,.]\d+)?$/; //Jorge: he puesto la expresión regular que hace los decimales (no dejo la anterior)
+let priceT = /^[+-]?\d+([.]\d+)?$/; //Jorge: he puesto la expresión regular que hace los decimales (no dejo la anterior)
                                     // Isra-Pablo: visto pero queremos que nos saque el precio total primero
 
 
 function addProduct() {
     if (article.value == "" && price.value == ""){
         errorArticle.textContent = "falta artículo";
+        article.style.border = 'thin solid red';
         errorPrice.textContent = "falta precio";
+        price.style.border = 'thin solid red';
     }else if (article.value == "" ){
         errorArticle.textContent = "falta artículo";
+        article.style.border = 'thin solid red';
+        price.style.border = 'thin solid black';
         errorPrice.textContent  = "";
     }else if (price.value == ""){
         errorPrice.textContent = "falta precio";
+        price.style.border = 'thin solid red';
+        article.style.border = 'thin solid black';
         price.focus();
         errorArticle.textContent = "";
     }else if (!priceT.test(price.value)){
-        errorPrice.textContent = "tipo de dato incorrecto";
+        errorPrice.textContent = "tipo de dato incorrecto";//isra: salta de linea en el formulario revisar
+        price.style.border = 'thin solid red';
     }else{      
         addArticle();
+        article.style.border = 'thin solid black';
         addPrices();
+        price.style.border = 'thin solid black';
         errorArticle.textContent = "";
         errorPrice.textContent  = "";
     } /*Jorge: he retocado el código, cambiando el primer if para que si no pones ningún articulo y precio salga el error en los dos,
@@ -51,8 +60,10 @@ function addArticle() {
         showAllArticles();
         article.value = ""; //Jorge: añadido que se borre el campo cuando damos a "añadir"
         article.focus(); //Jorge: añadido que cuando damos a "añadir" después de borrar los campos vuelva el foco al nombre
+        article.style.border = 'thin solid black'; // pone el borde de nuevo negro para sigiuente interacción
     }else{
         errorArticle.textContent = "falta artículo";
+        article.style.border = 'thin solid red';
     }
 }
 
@@ -68,6 +79,7 @@ function addPrices() {
     total = (p * u) + tp;
     showTotalPrice();
     price.value = ""; //Jorge: añadido que se borre el campo cuando damos a "añadir"
+    price.style.border ='thin solid black';// pone el borde de nuevo negro para sigiuente interacción
     units.value = 1;
 
     /* Jorge: tengo que seguir probando, dejádmelo por aquí pls
