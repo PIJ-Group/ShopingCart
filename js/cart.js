@@ -16,7 +16,6 @@ let erase;
 let printing;
 let check;
 let option;
-let prueba;
 let priceT = /^[+-]?\d+([.]\d+)?$/; 
                                     
 function addProduct() {
@@ -37,7 +36,7 @@ function addProduct() {
         price.focus();
         errorArticle.textContent = "";
     }else if (!priceT.test(price.value)){
-        errorPrice.textContent = 'tipo de dato incorrecto';//isra: salta de linea en el formulario revisar
+        errorPrice.textContent = 'tipo de dato incorrecto';
         errorArticle.textContent = "";
         article.style.border = 'thin solid black';
         price.style.border = 'thin solid red';
