@@ -11,30 +11,33 @@ let errorPrice;
 let selectPay;
 let cardPay;
 let cashPay;
+let cashDelivered;
 let erase;
 let printing;
 let check;
+let option;
+let prueba;
 let priceT = /^[+-]?\d+([.]\d+)?$/; 
                                     
 function addProduct() {
     if (article.value == "" && price.value == ""){
-        errorArticle.textContent = "falta artículo";
+        errorArticle.textContent = 'falta artículo';
         article.style.border = 'thin solid red';
-        errorPrice.textContent = "falta precio";
+        errorPrice.textContent = 'falta precio';
         price.style.border = 'thin solid red';
     }else if (article.value == "" ){
-        errorArticle.textContent = "falta artículo";
+        errorArticle.textContent = 'falta artículo';
         article.style.border = 'thin solid red';
         price.style.border = 'thin solid black';
         errorPrice.textContent  = "";
     }else if (price.value == ""){
-        errorPrice.textContent = "falta precio";
+        errorPrice.textContent = 'falta precio';
         price.style.border = 'thin solid red';
         article.style.border = 'thin solid black';
         price.focus();
         errorArticle.textContent = "";
     }else if (!priceT.test(price.value)){
-        errorPrice.textContent = "tipo de dato incorrecto";//isra: salta de linea en el formulario revisar
+        errorPrice.textContent = 'tipo de dato incorrecto';//isra: salta de linea en el formulario revisar
         errorArticle.textContent = "";
         article.style.border = 'thin solid black';
         price.style.border = 'thin solid red';
@@ -60,7 +63,7 @@ function addArticle() {
         article.focus();
         article.style.border = 'thin solid black';
     }else{
-        errorArticle.textContent = "falta artículo";
+        errorArticle.textContent = 'falta artículo';
         article.style.border = 'thin solid red';
     }
 }
@@ -99,7 +102,7 @@ function showAllArticles() {
 }
 
 function showTotalPrice() {   
-    totalPrice.value = total;   
+    totalPrice.value = total.toFixed(2);   
 }
 
 //Jorge: he hecho un híbrido entre lo de Pablo y lo mío, para no poner tantas variables y utilizar las que ya teníamos. (ha dado la casualidad de que cuando lo he terminado me he dado cuenta que lo había hecho Pablo igual xD xD)
@@ -145,6 +148,14 @@ function showPay() {
   
   Dentro del else if, meto un if-else anidado aprovechando para que me saque el importe total del carrito que llevemos, lo seteo a 0, si aún el usuario no ha introducido nada
   porque si no sale undefined y en cuanto hay articulos asignados se asigna automáticamente el monto que lleve. Para ese campo declaré una variable llamada totalAmount.*/
+function cashBack(){
+    if(cashDelivered.value < totalPrice.value){
+        return 'El efectivo entregado no es suficiente roñoso';
+    }else {
+        let rounding = (cashDelivered.value - totalPrice.value);
+        return rounding.toFixed(2) + ' €';
+    }
+}
 
 function ablePrint() {
     if(check.checked){
@@ -158,15 +169,16 @@ function ablePrint() {
 function printForm(){
     let index = selectPay.selectedIndex;
     if(selectPay.value == "T" || selectPay.value == "E") {
-        let option = window.confirm("Los artículos de mi carrito son: " + allArticles.value +"\n" +
-                    "El precio total es: " + totalPrice.value + " €" + "\n" +
-                    "Forma de pago: " + selectPay.options[index].text + "\n" +
-                    "\n" + "¿Estás seguro de comprar estos artículos?"); // isra: cambio confirm por el alert que había y añado texto
+        option = window.confirm('Los artículos de mi carrito son: ' + allArticles.value +"\n" +
+                    'El precio total es: ' + totalPrice.value + ' €' + '\n' +
+                    'Forma de pago: ' + selectPay.options[index].text + "\n" +
+                    'Efectivo a devolver: ' + cashBack() + '\n' +
+                    '\n' + '¿Estás seguro de comprar estos artículos?'); // isra: cambio confirm por el alert que había y añado texto
         if(option == true){
             print();
         }
     }else{
-        window.alert("Seleccione una forma de pago");
+        window.alert('Seleccione una forma de pago');
     }
 }
 
@@ -186,6 +198,7 @@ function initVariables() {
     selectPay = document.getElementById("selectWayToPay");
     cardPay = document.getElementById("cardPay");
     cashPay = document.getElementById("cashPay");
+    cashDelivered = document.getElementById('cashDelivered');
     totalAmount = document.getElementById('cashAmount');
     check = document.getElementById('terms');
     erase = document.getElementById('reset');
