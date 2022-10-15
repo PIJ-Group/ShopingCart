@@ -1,3 +1,4 @@
+//Declaración de variables
 let cart = [];
 let article;
 let price;
@@ -17,7 +18,9 @@ let printing;
 let check;
 let option;
 let priceT = /^[+-]?\d+([.]\d+)?$/; 
-                                    
+ 
+// Verifica que no hay elementos erróneos a introducir en el carrito, ni campos vacíos
+// en ese caso, agrega artículo y precio.
 function addProduct() {
     if (article.value == "" && price.value == ""){
         errorArticle.textContent = 'falta artículo';
@@ -51,20 +54,16 @@ function addProduct() {
     } 
 }
 
-function addArticle() {
-    if (article.value != ""){
-        cart.push(article.value);
-        showAllArticles();
-        article.focus();
-        article.style.border = 'thin solid black';
-    }else{
-        errorArticle.textContent = 'falta artículo';
-        article.style.border = 'thin solid red';
-    }
+// Agrega los artículos al array y llama a la función que los va mostrando.
+function addArticle() {    
+    cart.push(article.value);
+    showAllArticles();
+    article.focus();
+    article.style.border = 'thin solid black';    
 }
 
-function addPrices() {
-    
+// Suma los precios de los artículos que se añaden al carrito.
+function addPrices() {    
     let p = Number(price.value);
     let u = Number(units.value);
     let tp = Number(totalPrice.value);
@@ -76,14 +75,17 @@ function addPrices() {
     units.value = 1;
 }
 
+// Saca el array de artículos del carrito separados por una ",".
 function showAllArticles() {
     allArticles.value = cart.join(", ");
 }
 
+// Muestra el precio total del carrito.
 function showTotalPrice() {   
     totalPrice.value = total.toFixed(2);   
 }
 
+// Muestra u oculta las secciones de formulario según la forma de pago elegida.
 function showPay() {
     if(selectPay.value == "T"){
         cardPay.style.display = "block"; 
@@ -102,6 +104,7 @@ function showPay() {
     }
 }
 
+// Calcula las vueltas del pago en efectivo.
 function cashBack(){
     if(cashDelivered.value < totalPrice.value){
         return 'El efectivo entregado no es suficiente roñoso';
@@ -111,6 +114,7 @@ function cashBack(){
     }
 }
 
+// Habilita el botón "Imprimir" cuando se marca el checkbox de las condiciones de compra.
 function ablePrint() {
     if(check.checked){
         printing.disabled = false;
@@ -119,6 +123,8 @@ function ablePrint() {
     }
 }
 
+// Saca una ventana modal con los datos de la compra, o alerta
+// cuando no se ha seleccionado una forma de pago.
 function printForm(){
     let index = selectPay.selectedIndex;
     if(selectPay.value == "T" || selectPay.value == "E") {
@@ -135,10 +141,12 @@ function printForm(){
     }
 }
 
+// Recarga la página al pulsar el botón "Restablecer".
 function eraseForm() {
     location.reload();
 }
 
+// Inicializa las variables.
 function initVariables() {
     article = document.getElementById('articleName');
     price = document.getElementById('articlePrice');
@@ -158,6 +166,7 @@ function initVariables() {
     printing = document.getElementById('print');
 };
 
+// Inicializa los listeners.
 function initListeners() {
     add.addEventListener('click',addProduct);
     erase.addEventListener('click',eraseForm);
@@ -166,8 +175,11 @@ function initListeners() {
     selectPay.addEventListener("change", showPay);
 };
 
-window.addEventListener("load",() =>{
+// Carga la ventana y llama a las funciones para inicializar las variables y los listeners.
+window.addEventListener("load",() =>{ 
     initVariables();
     initListeners();
-    printing.disabled = true;
+    printing.disabled = true; // Al cargar la ventana deshabilita por defecto el botón "Imprimir".
+    cardPay.style.display = "none"; // Al cargar la ventana oculta las formas de pago del formulario.
+    cashPay.style.display = "none";
 });
