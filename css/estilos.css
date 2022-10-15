@@ -1,4 +1,4 @@
-/*Titulo e imagen tarea*/
+
 #logo{
     display: block;
     margin: 0 auto;
@@ -36,10 +36,7 @@ form {
     padding: 30px 450px 20px 30px;
 }
 
-/*Titulo H2 del formulario*/
 
-
-/*Colocación de icono detrás de título*/
 h2 {
     display: inline-block;
 }
@@ -58,7 +55,7 @@ form input {
     margin-left: 10px;   
 }
 
-/*Ordenar select*/
+
 .wayToPay {
     display: block;
 }
@@ -67,16 +64,7 @@ form input {
     display:block;
     margin-bottom: 70px;
 }
-/*Ocultar detalle de pago con tarjeta y contado*/
-.cardPay {
-    display: none;
-}
 
-.cashPay {
-    display: none;
-}
-
-/*Ordenar los términos*/
 .buttonTerms {
     clear:left;
     display:  inline-block;
@@ -88,7 +76,7 @@ form input {
     margin-bottom: 10px;
 }
 
-/*Orden últimos buttons*/
+
 .print {
     display: inline-block;
 }
