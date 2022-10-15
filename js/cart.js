@@ -57,9 +57,7 @@ function addProduct() {
 // Agrega los artículos al array y llama a la función que los va mostrando.
 function addArticle() {    
     cart.push(article.value);
-    showAllArticles();
-    article.focus();
-    article.style.border = 'thin solid black';    
+    showAllArticles();   
 }
 
 // Suma los precios de los artículos que se añaden al carrito.
