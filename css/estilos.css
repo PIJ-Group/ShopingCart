@@ -1,3 +1,20 @@
+/*Jorge: he puesto en todos los inputs, listas y eso un poco de borde circular,
+si veis que es demasiado, quitadle algunes px, o si no os gusta es quitarlo
+(es que yo no puedo con casi ninguna pestaña cuadrada, eso es viejo de pelotas xD)*/
+input, select{
+    border-radius: 5px;
+    border-color: white;
+}
+
+body>header img {
+    margin: auto;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+/*A partir de aquí es lo que ya había (excepto en los border radius de .print y .reset)*/
 
 #logo{
     display: block;
@@ -11,10 +28,6 @@
 }
 h1 {
     text-align: center;
-}
-
-body>header img {
-    margin: auto;
 }
 
 /*Caja formulario*/
@@ -79,8 +92,10 @@ form input {
 
 .print {
     display: inline-block;
+    border-radius: 5px;
 }
 
 .reset {
     display: inline-block;
+    border-radius: 5px;
 }
