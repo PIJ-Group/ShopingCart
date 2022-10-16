@@ -161,6 +161,7 @@ function printForm(){
     }
 } */
 
+
 // Recarga la página al pulsar el botón "Restablecer".
 function eraseForm() {
     location.reload();
