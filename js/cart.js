@@ -13,25 +13,28 @@ let selectPay;
 let cardPay;
 let cashPay;
 let cashDelivered;
+let cardHolder;
 let erase;
 let printing;
 let check;
 let option;
 let priceT = /^[+-]?\d+([.]\d+)?$/; 
  
-// Verifica que no hay elementos erróneos a introducir en el carrito, ni campos vacíos
-// en ese caso, agrega artículo y precio.
+/* Verifica que no hay elementos erróneos a introducir en el carrito, ni campos vacíos
+   en ese caso, agrega artículo y precio.*/
 function addProduct() {
     if (article.value == "" && price.value == ""){
         errorArticle.textContent = 'falta artículo';
         article.style.border = 'thin solid red';
         errorPrice.textContent = 'falta precio';
         price.style.border = 'thin solid red';
+        article.focus();
     }else if (article.value == "" ){
         errorArticle.textContent = 'falta artículo';
         article.style.border = 'thin solid red';
         price.style.border = 'thin solid black';
-        errorPrice.textContent  = "";
+        article.focus();
+        errorPrice.textContent  = "";        
     }else if (price.value == ""){
         errorPrice.textContent = 'falta precio';
         price.style.border = 'thin solid red';
@@ -43,6 +46,7 @@ function addProduct() {
         errorArticle.textContent = "";
         article.style.border = 'thin solid black';
         price.style.border = 'thin solid red';
+        price.focus();
     }else{      
         addArticle();
         addPrices();
@@ -50,7 +54,7 @@ function addProduct() {
         price.style.border = 'thin solid black';
         article.value = "";
         errorArticle.textContent = "";
-        errorPrice.textContent  = "";
+        errorPrice.textContent  = "";       
     } 
 }
 
@@ -88,9 +92,11 @@ function showPay() {
     if(selectPay.value == "T"){
         cardPay.style.display = "block"; 
         cashPay.style.display = "none";
+        cardHolder.focus();
     }else if(selectPay.value == "E"){
         cardPay.style.display = "none";
         cashPay.style.display = "block";
+        cashDelivered.focus();
         if(totalPrice.value == 0){
             totalAmount.value = 0;
         }else{
@@ -122,28 +128,13 @@ function ablePrint() {
     }
 }
 
-// Saca una ventana modal con los datos de la compra, o alerta
-// cuando no se ha seleccionado una forma de pago.
+/* Saca una ventana modal con los datos de la compra, o una alerta
+   cuando no se ha seleccionado una forma de pago.*/
 function printForm(){
-    let index = selectPay.selectedIndex;
-    if(selectPay.value == "T" || selectPay.value == "E") {
-        option = window.confirm('Los artículos de mi carrito son: ' + allArticles.value +"\n" +
-                    'El precio total es: ' + totalPrice.value + ' €' + '\n' +
-                    'Forma de pago: ' + selectPay.options[index].text + "\n" +
-                    'Efectivo a devolver: ' + cashBack() + '\n' +
-                    '\n' + '¿Estás seguro de comprar estos artículos?'); 
-        if(option == true){
-            print();
-        }
-    }else{
-        window.alert('Seleccione una forma de pago');
-    }
-}
-/* function printForm(){
     if(selectPay.value == "T"){
-        option = confirm('Los artículos de mi carrito son: ' + allArticles.value +"\n" +
+        option = confirm('Los artículos de mi carrito son: ' + allArticles.value +'\n' +
                     'El precio total es: ' + totalPrice.value + ' €' + '\n' +
-                    'Forma de pago: Tarjeta' + "\n" +
+                    'Forma de pago: Tarjeta' + '\n' +
                     '¿Estás seguro de comprar estos artículos?'); 
         if(option == true){
             print();
@@ -152,7 +143,7 @@ function printForm(){
         option = confirm('Los artículos de mi carrito son: ' + allArticles.value +"\n" +
                     'El precio total es: ' + totalPrice.value + ' €' + '\n' +
                     'Forma de pago: Efectivo'  + "\n" +
-                    'Efectivo a devolver: ' + cashBack() + '\n' +
+                    'Efectivo a devolver: ' + cashBack() + '\n' + 
                     '¿Estás seguro de comprar estos artículos?');
         if(option == true){
             print();            
@@ -160,8 +151,7 @@ function printForm(){
     }else{
         alert('Seleccione una forma de pago');
     }
-} */
-
+}
 
 // Recarga la página al pulsar el botón "Restablecer".
 function eraseForm() {
@@ -183,6 +173,7 @@ function initVariables() {
     cashPay = document.getElementById("cashPay");
     cashDelivered = document.getElementById('cashDelivered');
     totalAmount = document.getElementById('cashAmount');
+    cardHolder = document.getElementById('cardHolder');
     check = document.getElementById('terms');
     erase = document.getElementById('reset');
     printing = document.getElementById('print');
