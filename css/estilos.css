@@ -41,13 +41,13 @@ section>header {
 }
 
 form {
-    background-color: #E7E7E7;
+    background: linear-gradient(145deg, #cacaca, #f0f0f0);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     width: 300px;
     margin: 0 auto;
     padding: 30px 450px 20px 30px;
-    box-shadow:  34px 34px 68px #bebebe;
+    box-shadow:  10px 10px 20px #bebebe;
 }
 
 
