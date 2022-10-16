@@ -138,6 +138,28 @@ function printForm(){
         window.alert('Seleccione una forma de pago');
     }
 }
+/* function printForm(){
+    if(selectPay.value == "T"){
+        option = confirm('Los artículos de mi carrito son: ' + allArticles.value +"\n" +
+                    'El precio total es: ' + totalPrice.value + ' €' + '\n' +
+                    'Forma de pago: Tarjeta' + "\n" +
+                    '¿Estás seguro de comprar estos artículos?'); 
+        if(option == true){
+            print();
+        }
+    }else if(selectPay.value == "E"){
+        option = confirm('Los artículos de mi carrito son: ' + allArticles.value +"\n" +
+                    'El precio total es: ' + totalPrice.value + ' €' + '\n' +
+                    'Forma de pago: Efectivo'  + "\n" +
+                    'Efectivo a devolver: ' + cashBack() + '\n' +
+                    '¿Estás seguro de comprar estos artículos?');
+        if(option == true){
+            print();            
+         }
+    }else{
+        alert('Seleccione una forma de pago');
+    }
+} */
 
 // Recarga la página al pulsar el botón "Restablecer".
 function eraseForm() {
