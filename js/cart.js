@@ -111,6 +111,15 @@ function cashBack(){
         return rounding.toFixed(2) + ' €';
     }
 }
+/* function cashBack(){
+    let rounding = Number(cashDelivered.value);
+    if(rounding < totalPrice.value){
+        return 'El efectivo entregado no es suficiente roñoso';
+    }else {
+        rounding -= totalPrice.value;
+        return rounding.toFixed(2) + ' €';
+    }
+} */
 
 // Habilita el botón "Imprimir" cuando se marca el checkbox de las condiciones de compra.
 function ablePrint() {
