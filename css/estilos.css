@@ -100,3 +100,8 @@ form input {
     display: inline-block;
     border-radius: 5px;
 }
+
+#tc {
+    display: block;
+    margin-bottom: 15px;
+}
