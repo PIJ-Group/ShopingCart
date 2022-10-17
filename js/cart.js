@@ -25,36 +25,37 @@ let priceT = /^[+-]?\d+([.]\d+)?$/;
 function addProduct() {
     if (article.value == '' && price.value == ''){
         errorArticle.textContent = 'falta artículo';
-        article.style.border = 'thin solid red';
+        article.style.border = '2px solid red'; //Jorge: he hecho mas gorditos los bordes para que se queden igual que los naranjas (lo he hecho en todos, a 2 px, a 1 es el thin que teníamos y así el form no se mueve)
         errorPrice.textContent = 'falta precio';
-        price.style.border = 'thin solid red';
+        price.style.border = '2px solid red';
         article.focus();
     }else if (article.value == '' ){
         errorArticle.textContent = 'falta artículo';
-        article.style.border = 'thin solid red';
-        price.style.border = 'thin solid black';
+        article.style.border = '2px solid red';
+        price.style.border = '2px solid black';
         article.focus();
         errorPrice.textContent  = '';        
     }else if (price.value == ''){
         errorPrice.textContent = 'falta precio';
-        price.style.border = 'thin solid red';
-        article.style.border = 'thin solid black';
+        price.style.border = '2px solid red';
+        article.style.border = '2px solid black';
         price.focus();
         errorArticle.textContent = '';
     }else if (!priceT.test(price.value)){
         errorPrice.textContent = 'tipo de dato incorrecto';
         errorArticle.textContent = '';
-        article.style.border = 'thin solid black';
-        price.style.border = 'thin solid red';
+        article.style.border = '2px solid black';
+        price.style.border = '2px solid ';
         price.focus();
     }else{      
         addArticle();
         addPrices();
-        article.style.border = 'thin solid black';
-        price.style.border = 'thin solid black';
+        article.style.border = '2px solid #FBB040';
+        price.style.border = '2px solid #FBB040';
         article.value = '';
         errorArticle.textContent = '';
-        errorPrice.textContent  = '';       
+        errorPrice.textContent  = '';
+        article.focus(); //Jorge: no se si al limpiar se ha borrao pero he puesto esto porque no volvía a poner el foco en el name       
     } 
 }
 
@@ -73,7 +74,7 @@ function addPrices() {
     total = (p * u) + tp;
     showTotalPrice();
     price.value = ''; 
-    price.style.border ='thin solid black';
+    price.style.border ='2px solid black';
     units.value = 1;
 }
 
@@ -112,19 +113,22 @@ function showPay() {
  function cashBack(){
     let cashReturn = Number(cashDelivered.value);
     if(cashReturn < totalPrice.value){
-        return 'El efectivo entregado no es suficiente roñoso';
+        return 'El efectivo entregado no es suficiente roñoso'; //Jorge: vais a dejar lo del roñoso??? xD
     }else {
         cashReturn -= totalPrice.value;
         return cashReturn.toFixed(2) + ' €';
     }
 }
 
-// Habilita el botón 'Imprimir' cuando se marca el checkbox de las condiciones de compra.
+/* Habilita el botón 'Imprimir' cuando se marca el checkbox de las condiciones de compra,
+cambiando el color cuando está operativo y volviendo al origen cuando no*/
 function ablePrint() {
     if(check.checked){
         printing.disabled = false;
+        printing.style.backgroundColor = 'white';
     }else{
         printing.disabled = true;
+        printing.style.backgroundColor = 'gray';//Jorge: he alargado la explicación de la función poniendo el color del botón.
     }
 }
 
