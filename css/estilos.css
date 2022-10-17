@@ -1,20 +1,16 @@
-/*Jorge: he puesto en todos los inputs, listas y eso un poco de borde circular,
-si veis que es demasiado, quitadle algunes px, o si no os gusta es quitarlo
-(es que yo no puedo con casi ninguna pestaña cuadrada, eso es viejo de pelotas xD)*/
-input, select{
-    border-radius: 5px;
-    border-color: white;
+
+/*Formateo general de la página, asegurando que de serie no haya márgenes diferentes y todo
+ocupe lo que ocupa cada caja*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-body>header img {
-    margin: auto;
-}
 
-label {
-    margin-bottom: 5px;
-}
-
-/*A partir de aquí es lo que ya había (excepto en los border radius de .print y .reset)*/
+/*Colocación del logo de la tienda en el centro superior de la página a modo de cabecera,
+resaltando con fondo negro*/
 
 #logo{
     display: block;
@@ -22,53 +18,105 @@ label {
     padding-bottom: 10px;
 }
 
+header {
+    background-color: black;
+    margin-bottom: 51px;
+    padding-top: 15px;
+}
+
+/* Si quitamos el carrito negro del Header del formulario, quitamos este estilo
 #cartIcon{
     width: 20px;
     height: 20px;
 }
-h1 {
-    text-align: center;
+*/
+
+/*Fondo body*/
+
+body {
+    background-color: #506F86;
+    width: 100%;
+    height: 100%;
 }
 
-/*Caja formulario*/
+
+/*Estilos para la caja completa del formulario, color, degradado y tamaño*/
 section>header {
-    background-color: grey;
+    background: linear-gradient(145deg, #506F86, #2F3C4F);
+    box-shadow:  10px 10px 20px #2F3C4F;
+    background-color: #fcfcfce3;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    width: 300px;
+    border-bottom: solid 1px grey;
+    width: 750px;
     margin: 0 auto;
-    padding: 0px 450px 0px 30px;
+    padding: 20px 0px 20px 0px;   
+}
+
+/* Lo mismo que antes, si quitamos el icono, quitamos este estilo
+#cartIcon {
+    position: relative;
+}
+*/
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+    -webkit-text-stroke: 2px black;
+    color: #FBB040; 
+    
 }
 
 form {
-    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    background: linear-gradient(145deg, #506F86, #2F3C4F);
+    box-shadow:  10px 10px 20px #2F3C4F;
+    position: relative;
+    background-color: #fcfcfce3;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    width: 300px;
+    width: 750px;
     margin: 0 auto;
+    margin-bottom: 74px;
     padding: 30px 450px 20px 30px;
-    box-shadow:  10px 10px 20px #bebebe;
+    
 }
 
-
-h2 {
-    display: inline-block;
-}
-
-/*Separación de inputs*/
+/*Colocación de los componentes internos del formulario*/
 form label {
     display: block;
+    margin-bottom: 5px;
+    color: white;
 }
 
 form input {
     clear: right;
     margin-bottom: 10px;
+    border-radius: 5px;
+    border-color: #FBB040;
+    background-color: #f9f9f9b9;
+    padding: 1px 5px 1px 5px;
+    
 }
-#spanArticlePrice{
+
+#spanName{
     position: absolute;
+    color: white;
     margin-left: 10px;   
 }
 
+#spanArticlePrice{
+    position: absolute;
+    color: white;
+    margin-left: 10px;   
+}
+
+#add {
+    background-color: white;
+}
+
+#add:hover {
+    cursor: pointer
+}
 
 .wayToPay {
     display: block;
@@ -77,11 +125,23 @@ form input {
 .selectWayToPay {
     display:block;
     margin-bottom: 70px;
+    background-color: #f9f9f9b9;
+    border-radius: 5px;
+    border-color: #FBB040;
+    padding: 1px 5px 1px 5px
+}
+
+.selectWayToPay:hover {
+    cursor: pointer
 }
 
 .buttonTerms {
     clear:left;
     display:  inline-block;
+}
+
+.buttonTerms:hover {
+    cursor: pointer
 }
 
 .terms {
@@ -90,18 +150,46 @@ form input {
     margin-bottom: 10px;
 }
 
+/*Estilos para los botones de envío y reseteo del formulario*/
 
 .print {
     display: inline-block;
     border-radius: 5px;
+    background-color: gray;
+}
+
+.print:hover {
+    cursor: pointer
 }
 
 .reset {
     display: inline-block;
     border-radius: 5px;
+    background-color: white;
 }
+
+.reset:hover{
+    cursor: pointer
+}
+
+/*Condiciones de compra*/
 
 #tc {
     display: block;
     margin-bottom: 15px;
+    color: #FBB040;
+    text-decoration: none;
 }
+
+/* Estilos para el pie de página */
+
+footer {
+    position: relative;
+    width: 100%;
+    height: 55px;
+    background-color: #2F3C4F;
+    text-align: right;
+    padding: 15px 30px 15px 0;
+    color: white;
+}
+

@@ -11,14 +11,13 @@
 </head>
 <body>
     <header>        
-        <h1>Supermercado</h1>
         <img src="img/logo.PNG" width="400" alt="Icono supermercado" id="logo">
     </header>
     <main>
         <section>
             <header>
-                <h2>Tu cesta</h1>
-                <img src="img/cesta_form.png" id="cartIcon" alt="icono cesta">
+                <h2>TU CESTA</h2>
+                <!--<img src="img/cesta_form.png" id="cartIcon" alt="icono cesta"> Jorge: esto lo dejo documentado porque al ser icono negro no quedaba muy allá --> 
             </header>
             <article id="form">
                 <form action="procesarPeticion.jsp" method="get">
@@ -68,6 +67,7 @@
 
                     <input class="buttonTerms" id="terms" type="checkbox" name="terms" value="Y"> 
                         <label class="terms" for="terms">Acepto las condiciones de la compra</label>
+                        
                     <a id="tc" href="docs/Terminos_de_uso_y_condiciones_generales_de_compra.pdf" target="_blank">Condiciones de compra</a>
                         
                     <input class="print" id="print" type="button" value="Imprimir">
@@ -76,6 +76,9 @@
                 </form>
             </article>
         </section>
+        <footer>
+            <p>Copyright © 2022 All Rights Reserved by PIJShop.</p>
+        </footer>
     </main>
 </body>
 </html>
