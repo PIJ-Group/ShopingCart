@@ -26,7 +26,8 @@ se advertirá de la misma forma que la anterior al hacer clic en el botón “A�
 
 
   •	Habrá dos formas de pagar:
-    o	Si se selecciona “Tarjeta” aparecerán tres nuevas cajas de texto para introducir los datos de la tarjeta bancaria. 
+    o	Si se selecciona “Tarjeta” aparecerán tres nuevas cajas de texto para introducir los datos de la tarjeta 
+      bancaria. 
     o	Si se selecciona “Efectivo” aparecerá una nueva caja de texto con el importe total del carrito.
   •	El botón “Imprimir” se habilitará cuando se acepten las condiciones de compra.
   •	Cuando se pulse el botón “Imprimir” debe mostrar a través de una ventana, tanto la lista de 
@@ -45,9 +46,9 @@ REQUERIMIENTO 2
 3- Aplica estilos mediante una hoja CSS externa. 
 
 Se valorará una buena presentación de la página web, pero lo importante es la parte funcional de JavaScript. 
-Es fundamental que durante la ejecución de la aplicación web no se produzcan excepciones ni ningún tipo de error. 
-Habrá que gestionarlos y tenerlos en cuenta desde el código.
-Probad con la introducción de diferentes tipos de datos o dejando las cajas vacías.  En todo momento habrá que informar 
-al usuario de las necesidades del programa.
+Es fundamental que durante la ejecución de la aplicación web no se produzcan excepciones ni ningún tipo de 
+error. Habrá que gestionarlos y tenerlos en cuenta desde el código.
+Probad con la introducción de diferentes tipos de datos o dejando las cajas vacías.  En todo momento habrá
+que informar al usuario de las necesidades del programa.
 
 </pre>
