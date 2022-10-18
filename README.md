@@ -26,8 +26,8 @@ se advertirá de la misma forma que la anterior al hacer clic en el botón “A�
 
 
   •	Habrá dos formas de pagar:
-    o	Si se selecciona “Tarjeta” aparecerán tres nuevas cajas de texto para introducir los datos de la tarjeta 
-      bancaria. 
+    o	Si se selecciona “Tarjeta” aparecerán tres nuevas cajas de texto para introducir los datos de la 
+      tarjeta bancaria. 
     o	Si se selecciona “Efectivo” aparecerá una nueva caja de texto con el importe total del carrito.
   •	El botón “Imprimir” se habilitará cuando se acepten las condiciones de compra.
   •	Cuando se pulse el botón “Imprimir” debe mostrar a través de una ventana, tanto la lista de 
