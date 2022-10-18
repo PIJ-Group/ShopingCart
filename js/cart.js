@@ -25,7 +25,7 @@ let priceT = /^[+-]?\d+([.]\d+)?$/;
 function addProduct() {
     if (article.value == '' && price.value == ''){
         errorArticle.textContent = 'falta artículo';
-        article.style.border = '2px solid red'; //Jorge: he hecho mas gorditos los bordes para que se queden igual que los naranjas (lo he hecho en todos, a 2 px, a 1 es el thin que teníamos y así el form no se mueve)
+        article.style.border = '2px solid red';
         errorPrice.textContent = 'falta precio';
         price.style.border = '2px solid red';
         article.focus();
@@ -55,7 +55,7 @@ function addProduct() {
         article.value = '';
         errorArticle.textContent = '';
         errorPrice.textContent  = '';
-        article.focus(); //Jorge: no se si al limpiar se ha borrao pero he puesto esto porque no volvía a poner el foco en el name       
+        article.focus();
     } 
 }
 
@@ -128,7 +128,7 @@ function ablePrint() {
         printing.style.backgroundColor = 'white';
     }else{
         printing.disabled = true;
-        printing.style.backgroundColor = 'gray';//Jorge: he alargado la explicación de la función poniendo el color del botón.
+        printing.style.backgroundColor = 'gray';
     }
 }
 
