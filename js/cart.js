@@ -45,7 +45,7 @@ function addProduct() {
         errorPrice.textContent = 'tipo de dato incorrecto';
         errorArticle.textContent = '';
         article.style.border = '2px solid black';
-        price.style.border = '2px solid ';
+        price.style.border = '2px solid red';
         price.focus();
     }else{      
         addArticle();
