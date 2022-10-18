@@ -113,7 +113,7 @@ function showPay() {
  function cashBack(){
     let cashReturn = Number(cashDelivered.value);
     if(cashReturn < totalPrice.value){
-        return 'El efectivo entregado no es suficiente roñoso'; //Jorge: vais a dejar lo del roñoso??? xD
+        return 'El efectivo entregado no es suficiente, roñoso';
     }else {
         cashReturn -= totalPrice.value;
         return cashReturn.toFixed(2) + ' €';
